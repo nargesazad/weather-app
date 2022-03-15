@@ -1,0 +1,8 @@
+.col-2 {
+  text-align: center;
+}
+.boxborder {
+  border: 1px solid;
+  border-radius: 10px;
+  border-color: antiquewhite;
+}
