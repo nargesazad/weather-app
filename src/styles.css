@@ -1,8 +1,11 @@
 .col-2 {
   text-align: center;
 }
-.boxborder {
+
+.wrapper {
+  padding: 10px;
+  margin-top: 30px;
   border: 1px solid;
   border-radius: 10px;
-  border-color: antiquewhite;
+  border-color: rgb(228, 226, 224);
 }
