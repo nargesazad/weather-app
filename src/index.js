@@ -28,8 +28,8 @@ function searching(event) {
   let h2City = document.querySelector("#h2Citys");
   h2City.innerHTML = `${city.value}`;
 }
-let search = document.querySelector("form");
-search.addEventListener("submit", searching);
+let search = document.querySelector("#search-but");
+search.addEventListener("click", searching);
 //end of search city part
 
 //api part
@@ -48,15 +48,12 @@ function showCurrentLocation(position) {
   h2City.innerHTML = "Current Location";
 }
 function showTemp(response) {
-  let mainTemp = document.querySelector("#current-temp");
+  var mainTemp = document.querySelector("#current-temp");
   mainTemp.innerHTML = response.data.main.temp;
   console.log(mainTemp);
 }
 var currentBut = document.querySelector("#current-but");
 currentBut.addEventListener("click", getlocation);
-/*
-var currentBut = document.querySelector("#current");
-currentBut.addEventListener("submit", showCurrentLocation);
 //end of api part
 //unit part
 function cel2far(event, mainTemp) {
