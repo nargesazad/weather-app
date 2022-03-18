@@ -9,3 +9,8 @@
   border-radius: 10px;
   border-color: rgb(228, 226, 224);
 }
+
+.source {
+  text-align: center;
+  margin: 0 auto;
+}
