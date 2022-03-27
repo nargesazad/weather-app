@@ -33,30 +33,49 @@ search.addEventListener("click", searching);
 //end of search city part
 
 //api part
-function getlocation() {
+function showTemp(response) {
+  let currentTemp = document.querySelector("#current-temp");
+  currentTemp.innerHTML = Math.round(response.data.main.temp);
+  let cityName = document.querySelector("#h2Citys");
+  cityName.innerHTML = response.data.name;
+  let sky = document.querySelector("#sky-status");
+  sky.innerHTML = response.data.weather[0].description;
+  let feels = document.querySelector("#feels-like");
+  feels.innerHTML = Math.round(response.data.main.feels_like);
+  let humidity = document.querySelector("#humidity");
+  humidity.innerHTML = response.data.main.humidity;
+}
+
+let apiKey = "90752b41f27333ec27018bf17cc38b4c";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=london&appid=${apiKey}&units=metric`;
+console.log(apiUrl);
+axios.get(apiUrl).then(showTemp);
+//api part
+/*function getlocation() {
   navigator.geolocation.getCurrentPosition(showCurrentLocation);
 }
 
 function showCurrentLocation(position) {
-  let latitude = position.coords.latitude;
-  let longitude = position.coords.longitude;
+  let latitude = position.coords.lat;
+  let longitude = position.coords.lon;
   console.log(`${latitude} & ${longitude}`);
-  let apiKey = "90752b41f27333ec27018bf17cc38b4c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
   axios.get(apiUrl).then(showTemp);
   let h2City = document.querySelector("#h2Citys");
   h2City.innerHTML = "Current Location";
 }
+showCurrentLocation();
 function showTemp(response) {
   var mainTemp = document.querySelector("#current-temp");
   mainTemp.innerHTML = response.data.main.temp;
   console.log(mainTemp);
 }
-var currentBut = document.querySelector("#current-but");
+let currentBut = document.querySelector("#current-but");
 currentBut.addEventListener("click", getlocation);
 //end of api part
 //unit part
-function cel2far(event, mainTemp) {
+/*function cel2far(event, mainTemp) {
   event.preventDefault();
   let unit = document.querySelector("#c2f");
   if (unit.innerHTML === "°C") {
