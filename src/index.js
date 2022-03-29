@@ -2,7 +2,13 @@
 function formatDate() {
   let currentTime = new Date();
   let hour = currentTime.getHours();
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
   let minute = currentTime.getMinutes();
+  if (minute < 10) {
+    minute = `0${minute}`;
+  }
   let days = [
     "Sunday",
     "Monday",
