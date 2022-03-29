@@ -17,25 +17,16 @@
   <body>
     <div class="container">
       <div class="pageWrapper">
-      <div class="searchCity">
-        <form>
+        <form id ="search-city">
           <div class="row">
-            <div class="col-8">
-              <div class="input-group">
-                <span class="input-group-text">City</span>
-                <input type="text" class="form-control" id="citys" value="current">
-                <button type="button" class="btn btn-info" id = "search-but">🔍</button>
-              </div>
-              </div>
-            <div class="col-2">
-              <button type="button" class="btn btn-info" id = "c2f">°F</button>
+            <div class="col-10" >
+                <input type="search" placeholder="City name..." class="form-control" autocomplete="off" id="citys" />
             </div>
             <div class="col-2">
-              <button type="button" class="btn btn-info" id = "current-but">current</button>
-            </div>
-          </div>
+                <input type="submit" value="🔍" class="btn btn-info">
+             </div>
+           </div>
         </form>
-      </div>
       <div class="current" style="margin-top: 30px;">
         <div class="row">
           <div class="col-6" >

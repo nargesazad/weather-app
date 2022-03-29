@@ -26,18 +26,6 @@ let time = document.querySelector("div#time");
 time.innerHTML = formatDate();
 //end of time section
 
-//search city part
-function searching(event) {
-  event.preventDefault();
-  let city = document.querySelector("#citys");
-  city.innerHTML = `${city.value}`;
-  let h2City = document.querySelector("#h2Citys");
-  h2City.innerHTML = `${city.value}`;
-}
-let search = document.querySelector("#search-but");
-search.addEventListener("click", searching);
-//end of search city part
-
 //api part
 function showTemp(response) {
   let currentTemp = document.querySelector("#current-temp");
@@ -51,24 +39,56 @@ function showTemp(response) {
   let humidity = document.querySelector("#humidity");
   humidity.innerHTML = response.data.main.humidity;
   let icon = response.data.weather[0].description;
+  //imag part
   let stat = "sun";
-  if (icon === "snow") {
-    stat = "snow";
-  } else {
-    if (icon === "few clouds" || "scattered clouds" || "broken clouds") {
+  switch (icon) {
+    case `snow`:
+      stat = "snow";
+      break;
+    case `few clouds`:
       stat = "cloud";
-    } else {
-      if (icon === "shower rain" || "rain" || "thunderstorm") {
-        stat = "rain";
-      }
-    }
+      break;
+    case `scattered clouds`:
+      stat = "cloud";
+      break;
+    case `broken clouds`:
+      stat = "cloud";
+      break;
+    case `overcast clouds`:
+      stat = "cloud";
+      break;
+    case `shower rain`:
+      stat = "rain";
+      break;
+    case `rain`:
+      stat = "rain";
+      break;
+    case `thunderstorm`:
+      stat = "rain";
+      break;
+    default:
+      stat = "sun";
   }
   let pic = document.querySelector("#pic");
   pic.setAttribute("src", `images/${stat}.svg`);
+  //image part
 }
 
-let apiKey = "90752b41f27333ec27018bf17cc38b4c";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=london&appid=${apiKey}&units=metric`;
-console.log(apiUrl);
-axios.get(apiUrl).then(showTemp);
+function searchingCity(city) {
+  let apiKey = "90752b41f27333ec27018bf17cc38b4c";
+  let cityName = city;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemp);
+}
 //api part
+//search city part
+function submiting(event) {
+  event.preventDefault();
+  let city = document.querySelector("#citys");
+  searchingCity(city.value);
+}
+
+let search = document.querySelector("#search-city");
+search.addEventListener("submit", submiting);
+searchingCity("tehran");
+//end of search city part
