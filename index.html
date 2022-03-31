@@ -18,21 +18,19 @@
     <div class="container">
       <div class="pageWrapper">
         <form id ="search-city">
-          <div class="row">
-            <div class="col-10" >
-                <input type="search" placeholder="City name..." class="form-control" autocomplete="off" id="citys" />
-            </div>
-            <div class="col-2">
-                <input type="submit" value="🔍" class="btn btn-info">
-             </div>
-           </div>
-        </form>
+          <div class="input-group mb-3">
+  <input type="search" class="form-control" placeholder="Search city here" aria-label="Recipient's username" aria-describedby="basic-addon2" autocomplete="off" id="citys">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="button">🔍</button>
+  </div>
+</div>
+              </form>
       <div class="current" style="margin-top: 30px;">
         <div class="row">
           <div class="col-6" >
-            <h1 id="h2Citys"></h1> 
-            <h2><span id="current-temp"></span><span class = "currentUnit">°C</span></h2>
-            <h3>feels like: <span id="feels-like"></span><span class = "current-unit">°C</span></h3>
+            <h2 id="h2Citys"></h2> 
+            <h1><span id="current-temp"></span><span style="opacity: 70%;">°C</span></h1>
+            <h3>feels like: <span id="feels-like"></span>°C</h3>
             <h3><span id="sky-status"></span></h3>
             <h3>humidity: <span id="humidity"></span>%</h3>
           </div>

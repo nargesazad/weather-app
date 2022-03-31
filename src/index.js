@@ -53,9 +53,12 @@ function forcasting(response) {
     <h5 class="card-title"><img src="http://openweathermap.org/img/wn/${
       forcastDay.weather[0].icon
     }@2x.png" width="30px" /></h5>
-    <h6 class="card-subtitle mb-2 text-muted" >${Math.round(
-      forcastDay.temp.day
-    )}<span class = "currentUnit">°C</span></h6>
+    <h6 class="card-subtitle mb-2 text-muted" ><span style="color: #000;">${Math.round(
+      forcastDay.temp.max
+    )}°</h6>
+    <h6 class="card-subtitle mb-2 text-muted">${Math.round(
+      forcastDay.temp.min
+    )}°</h6>
   </div>
 </div>
 </div>
