@@ -8,10 +8,12 @@ h2 {
   font-size: 22px bold;
 }
 h3 {
-  font-size: 20px;
+  font-size: 17px;
+  opacity: 0.7;
 }
 .col-2 {
   text-align: center;
+  margin: 0px;
 }
 
 .pageWrapper {
